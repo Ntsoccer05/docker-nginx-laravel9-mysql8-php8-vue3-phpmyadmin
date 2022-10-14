@@ -1,18 +1,18 @@
 srcフォルダを作って以下の形にする  
 
 適当なフォルダ名  
-├─ docker(*)  
-│    ├─ php(*)  
+├─ docker  
+│    ├─ php  
 │    │   └─ Dockerfile  
 │    │   └─ php.ini  
-│    ├─ nginx(*)  
+│    ├─ nginx  
 │    │    └─ Dockerfile  
 │    │    └─ default.conf  
-│    └─ mysql(*)  
+│    └─ mysql  
 │         └─ Dockerfile  
 │         └─ my.cnf  
 │      
-├─ src(*)  
+├─ src  
 │    └─ ここにLaravelのPJディレクトが作られる  
 │─ .env  
 │─ .gitignore     
@@ -28,7 +28,6 @@ composer create-project --prefer-dist "laravel/laravel" .
 以下修正  
 /src/.env  
 APP_URL=http://localhost:1000  # nginxのポートと合わせる  
-
 DB_CONNECTION=mysql  
 DB_HOST=db   #docker-compose.ymlのdbのコンテナ名  
 DB_PORT=3306  
@@ -44,10 +43,12 @@ npm install && npm run dev
   
 以下を追加  
 src\vite.config.js  
+```
 server: {  
-    host: true,  
-    hmr: {  
-      host: 'localhost'  
-    }  
-  },  
+   host: true,  
+   hmr: {  
+     host: 'localhost'  
+   }  
+},  
+```
     
